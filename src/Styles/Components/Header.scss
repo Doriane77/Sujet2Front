@@ -1,0 +1,24 @@
+.Header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
+  background-color: #f6ecc4;
+  background-image: linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%);
+  button {
+    background-color: #abe9cd;
+    background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
+    margin: 0 20px;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: large;
+    margin-top: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
