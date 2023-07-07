@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../Styles/Pages/Login.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { RequeteData } from "../Utils/ReqS";
 function Login({ user, setUser }) {
   let navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -13,6 +14,7 @@ function Login({ user, setUser }) {
         email,
         password,
       });
+      // const response = await RequeteData("post", "login", { email, password });
       const userData = response.data.user;
       setUser(userData);
       const token = response.data.token;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../Styles/Pages/Register.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { RequeteData } from "../Utils/ReqS";
 function Register({ setUser }) {
   let navigate = useNavigate();
   const [name, setName] = useState("");
@@ -24,7 +25,15 @@ function Register({ setUser }) {
         password,
         confirmPassword,
       });
-
+      // const response = await RequeteData("post", "register", {
+      //   name,
+      //   surname,
+      //   email,
+      //   adresse,
+      //   phone,
+      //   password,
+      //   confirmPassword,
+      // });
       console.log("response: ", response.data);
 
       const userData = response.data.user;

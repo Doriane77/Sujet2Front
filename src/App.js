@@ -9,35 +9,68 @@ import Patisserie from "./Pages/Patisserie";
 import Gagant from "./Pages/Gagnant";
 
 function App() {
-  const [token, setToken] = useState("");
   const [user, setUser] = useState({});
+  const [winners, setWinners] = useState([]);
+  const [patries, setPatries] = useState([]);
+  const [isLoding, setIsLoding] = useState(false);
   const storedToken = localStorage.getItem("token");
-  console.log("user: ", user);
-  console.log("storedToken: ", storedToken);
+
+  // console.log("user: ", user);
+  // console.log("storedToken: ", storedToken);
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage user={user} setUser={setUser} />} />
+        <Route
+          path="/"
+          element={
+            <HomePage
+              user={user}
+              setUser={setUser}
+              setWinners={setWinners}
+              setPatries={setPatries}
+              isLoding={isLoding}
+              setIsLoding={setIsLoding}
+            />
+          }
+        />
         <Route
           path="/login"
-          element={<Login user={user} setUser={setUser} token={token} />}
+          element={<Login user={user} setUser={setUser} />}
         />
         <Route
           path="/register"
-          element={<Register user={user} setUser={setUser} token={token} />}
+          element={<Register user={user} setUser={setUser} />}
         />
         <Route
           path="/concour"
-          element={<Concour user={user} setUser={setUser} token={token} />}
+          element={
+            <Concour user={user} setUser={setUser} isLoding={isLoding} />
+          }
         />
         <Route
           path="/patisserie"
-          element={<Patisserie user={user} setUser={setUser} token={token} />}
+          element={
+            <Patisserie
+              user={user}
+              setUser={setUser}
+              patries={patries}
+              setPatries={setPatries}
+              isLoding={isLoding}
+            />
+          }
         />
         <Route
-          path="/gagant"
-          element={<Gagant user={user} setUser={setUser} token={token} />}
+          path="/gagnant"
+          element={
+            <Gagant
+              user={user}
+              setUser={setUser}
+              winners={winners}
+              setWinners={setWinners}
+              isLoding={isLoding}
+            />
+          }
         />
       </Routes>
     </Router>

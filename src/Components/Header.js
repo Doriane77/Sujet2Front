@@ -9,7 +9,7 @@ function Header({ user, setUser }) {
     <div className="Header">
       {storedToken ? (
         <>
-          <p>Bienvenue {user.name}</p>
+          <h1>Bienvenue {user.surname}</h1>
           <button
             onClick={() => {
               localStorage.clear();
